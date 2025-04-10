@@ -9,6 +9,7 @@ public interface StudentService {
     void update(Student student, Long id);
     void delete(Long id);
     Student findById(Long id);
+    Student findByEmail(String email);
     List<Student> findAll();
     List<Student> findAllByStatus(StudentStatus status);
     void changeStatus(Long id, StudentStatus status);

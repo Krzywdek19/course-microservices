@@ -2,6 +2,7 @@ package com.krzywdek19.courses.service;
 
 import com.krzywdek19.courses.model.Course;
 import com.krzywdek19.courses.model.CourseMember;
+import com.krzywdek19.courses.model.dto.EnrollmentStudent;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,4 +18,6 @@ public interface CourseService {
     void changeStatus(String code, Course.Status status);
     void signStudentToCourse(Long studentCode, String courseCode);
     List<CourseMember> getCourseMembers(String courseCode);
+    List<EnrollmentStudent> getEnrollmentStudents(String courseCode);
+    void finishEnroll(String courseCode);
 }

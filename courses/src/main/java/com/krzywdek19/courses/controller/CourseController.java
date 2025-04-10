@@ -2,6 +2,7 @@ package com.krzywdek19.courses.controller;
 
 import com.krzywdek19.courses.model.Course;
 import com.krzywdek19.courses.model.CourseMember;
+import com.krzywdek19.courses.model.dto.EnrollmentStudent;
 import com.krzywdek19.courses.model.dto.Student;
 import com.krzywdek19.courses.service.CourseService;
 import com.krzywdek19.courses.service.StudentServiceClient;
@@ -65,7 +66,13 @@ public class CourseController {
     }
 
     @GetMapping("/{code}/members")
-    public ResponseEntity<List<CourseMember>> getCourseMembers(@PathVariable String code) {
-        return ResponseEntity.ok(courseService.getCourseMembers(code));
+    public ResponseEntity<List<EnrollmentStudent>> getCourseMembers(@PathVariable String code) {
+        return ResponseEntity.ok(courseService.getEnrollmentStudents(code));
+    }
+
+    @PutMapping("/{code}/finish-enroll")
+    public ResponseEntity<Void> finishEnrollment(@PathVariable String code) {
+        courseService.finishEnroll(code);
+        return ResponseEntity.noContent().build();
     }
 }

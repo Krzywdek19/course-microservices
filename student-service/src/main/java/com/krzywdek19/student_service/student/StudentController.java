@@ -20,7 +20,7 @@ public class StudentController {
         return ResponseEntity.ok(studentService.findById(id));
     }
 
-    @GetMapping
+    @GetMapping(params = "status")
     public ResponseEntity<List<Student>> getAllStudents(@RequestParam Optional<StudentStatus> status){
         return status.map(studentStatus -> ResponseEntity.ok(studentService.findAllByStatus(studentStatus))).orElseGet(() -> ResponseEntity.ok(studentService.findAll()));
     }
@@ -49,4 +49,8 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping(params = "email")
+    public ResponseEntity<Student> getStudentByEmail(@RequestParam String email){
+        return ResponseEntity.ok(studentService.findByEmail(email));
+    }
 }

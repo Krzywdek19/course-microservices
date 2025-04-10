@@ -4,15 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
 @Data
-public class Student {
+@AllArgsConstructor
+public class EnrollmentStudent {
     @NotBlank
     private String name;
     @NotBlank
     private String lastname;
     @NotBlank
     private String email;
-    @NotBlank
-    private String status;
 }
